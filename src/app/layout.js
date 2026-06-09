@@ -13,7 +13,26 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Alvaro Gervasini Automóviles",
-  description: "Venta de vehículos usados y financiados en Uruguay.",
+  description: "Venta de vehículos usados y financiados en Uruguay. Financiación y permuta disponible.",
+  openGraph: {
+    title: "Alvaro Gervasini Automóviles",
+    description: "Venta de vehículos usados y financiados en Uruguay. Financiación y permuta disponible.",
+    url: "https://gervasiniautomoviles.com.uy",
+    siteName: "Alvaro Gervasini Automóviles",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Alvaro Gervasini Automóviles",
+      },
+    ],
+    locale: "es_UY",
+    type: "website",
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
