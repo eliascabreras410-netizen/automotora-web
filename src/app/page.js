@@ -76,7 +76,7 @@ export default async function Home() {
         ) : (
           <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {autos.map((auto) => (
-              <article key={auto.id} className="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 hover:-translate-y-2 hover:scale-105">
+              <article key={auto.id} className="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 md:hover:-translate-y-2 md:hover:scale-105">
                 <div className="relative h-44 w-full overflow-hidden bg-gray-200">
                   {auto.imagenes && auto.imagenes[0] ? (
                     <Image
