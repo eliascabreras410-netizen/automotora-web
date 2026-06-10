@@ -23,7 +23,6 @@ bun dev
 ✅ Hero (página principal)
 ✅ Tarjetas de vehículos
 ✅ Páginas individuales por vehículo (ruta dinámica /vehiculos/[id])
-✅ Archivo central de datos (src/app/data/vehiculos.js) — pendiente eliminar cuando se confirme que todo anda desde Supabase
 ✅ Botón WhatsApp
 ✅ Sección contacto (con link discreto "Acceso administrador")
 ✅ Scroll suave
@@ -54,10 +53,16 @@ bun dev
 ✅ Fotos de todos los autos subidas a Supabase Storage (bucket: autos-imagenes)
 ✅ URLs de fotos actualizadas en tabla autos (ya no usan rutas locales)
 ✅ next.config.mjs configurado para permitir imágenes desde Supabase Storage
+✅ Deploy en Vercel completado — proyecto en producción
+✅ Código subido a GitHub (eliascabreras410-netizen/automotora-web)
+✅ Variables de entorno de Supabase configuradas en Vercel
+✅ Favicon personalizado (icon.png con logo de la automotora)
+✅ OG Image configurada (se muestra al compartir el link por WhatsApp/redes)
+✅ Metadata Open Graph configurada en layout.js
 
 ## Estructura de carpetas
 src/app/
-│   favicon.ico
+│   icon.png          ← favicon personalizado
 │   globals.css
 │   layout.js
 │   page.js
@@ -87,6 +92,9 @@ src/app/
     └───[id]/
             page.js
 
+public/
+│   og-image.png      ← imagen Open Graph para compartir en redes/WhatsApp
+
 ## Supabase
 - Proyecto: Alvaro Gervasini Automoviles
 - URL: https://ufnbgyfrwnmmfqpxqhdm.supabase.co
@@ -112,6 +120,12 @@ src/app/
 - suran → 2 fotos
 - suzuki-celerio → 3 fotos
 
+## Vercel / Deploy
+- Proyecto en Vercel: gervasiniautomoviles
+- URL actual: https://automotora-web.vercel.app
+- Repositorio GitHub: https://github.com/eliascabreras410-netizen/automotora-web
+- Para actualizar producción: git add . → git commit -m "mensaje" → git push
+
 ## Credenciales (.env.local)
 NEXT_PUBLIC_SUPABASE_URL=https://ufnbgyfrwnmmfqpxqhdm.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_... (ver archivo .env.local)
@@ -120,7 +134,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_... (ver archivo .env.local)
 C:\Users\Dell\automotora-web
 
 ## Pendiente / próximos pasos
-- [ ] Deploy en Vercel (Etapa 4) ← PRÓXIMO PASO
+- [ ] Comprar dominio gervasiniautomoviles.com.uy en NIC.UY (requiere cuenta Antel) ← PRÓXIMO PASO
+- [ ] Conectar dominio gervasiniautomoviles.com.uy a Vercel
+- [ ] Registrar sitio en Google Search Console (hacerlo con dominio definitivo)
 - [ ] Eliminar src/app/data/vehiculos.js (ya no se usa)
 - [ ] Reemplazar imágenes de collage de Instagram por fotos limpias
 - [ ] Confirmar transmisión del Chevrolet Aveo
@@ -150,4 +166,6 @@ C:\Users\Dell\automotora-web
 - Script de migración de vehiculos.js a Supabase ya fue ejecutado (10 autos)
 - Script subir-fotos.mjs ejecutado exitosamente — fotos subidas desde C:\Users\Dell\Downloads
 - next.config.mjs configurado con remotePatterns para ufnbgyfrwnmmfqpxqhdm.supabase.co
-
+- Favicon: icon.png en src/app/ (logo verde del auto sobre fondo oscuro)
+- OG Image: og-image.png en public/ (1200x630, se muestra al compartir links)
+- Dominio definitivo pendiente: gervasiniautomoviles.com.uy (pago requiere cuenta Antel)
