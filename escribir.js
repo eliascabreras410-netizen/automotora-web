@@ -90,3 +90,4 @@ export default function VehiculoPage({ params }) {
 
 fs.writeFileSync('src/app/vehiculos/[id]/page.js', codigo);
 console.log('Listo!');
+//<!-- test commit -->
