@@ -91,21 +91,6 @@ export const vehiculos = [
     imagenes: ["/HyundaiHb20.jpg","/HyundaiHb201.jpg","/HyundaiHb202.jpg","/HyundaiHb203.jpg","/HyundaiHb204.jpg", "/HyundaiHb205.jpg", "/HyundaiHb206.jpg"]
   },
   {
-    id: "fiat-mobi",
-    marca: "Fiat",
-    modelo: "Mobi",
-    ano:2018,
-    km: 80000, 
-    transmision: "Manual",
-    motor: "1.0 Fire",
-    combustible: "Nafta",
-    precio: null,
-    nuevo_ingreso: true,
-    especificaciones: ["Aire acondicionado", "Vidrio eléctrico", "Dirección hidráulica"],
-    beneficios: ["Financiación disponible", "Acepta permuta", "Consulte entrega inicial"],
-    imagenes: ["/FiatMobi.jpg","/FiatMobi1.jpg","/FiatMobi2.jpg"]
-  },
-  {
     id: "chevrolet-spark",
     marca: "Chevrolet",
     modelo: "Spark",
