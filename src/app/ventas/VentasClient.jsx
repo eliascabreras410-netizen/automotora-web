@@ -74,12 +74,12 @@ export default function VentasClient() {
                   onClick={() => setVentaAmpliada(venta)}
                   className="group bg-white rounded-3xl overflow-hidden shadow-lg cursor-pointer transition duration-300 hover:-translate-y-2 hover:shadow-xl"
                 >
-                  <div className="relative h-56 w-full overflow-hidden bg-gray-200">
+                  <div className="relative w-full overflow-hidden bg-gray-200" style={{ aspectRatio: '3/4' }}>
                     {venta.foto_url ? (
                       <img
                         src={venta.foto_url}
                         alt={venta.auto_descripcion}
-                        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                        className="w-full h-full object-contain transition duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-gray-400 text-4xl">🚗</div>
@@ -131,7 +131,7 @@ export default function VentasClient() {
             onClick={e => e.stopPropagation()}
           >
             {ventaAmpliada.foto_url && (
-              <img src={ventaAmpliada.foto_url} alt={ventaAmpliada.auto_descripcion} className="w-full max-h-80 object-cover" />
+              <img src={ventaAmpliada.foto_url} alt={ventaAmpliada.auto_descripcion} className="w-full max-h-[70vh] object-contain bg-black" />
             )}
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900">{ventaAmpliada.auto_descripcion}</h3>
