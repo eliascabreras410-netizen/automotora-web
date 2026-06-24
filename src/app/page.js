@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
 import StockClient from "./components/StockClient";
+import ScrollReveal from "./components/ScrollReveal";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -67,44 +68,46 @@ export default async function Home() {
       </main>
       
       {/* SECCIÓN POR QUÉ ELEGIRNOS */}
-     <section className="bg-white px-5 py-16 md:px-10 md:py-20">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-12 text-center text-3xl font-bold text-black md:text-4xl">
-         ¿Por qué <span className="text-green-500">elegirnos?</span>
-        </h2>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+<section className="bg-white px-5 py-16 md:px-10 md:py-20">
+  <div className="mx-auto max-w-6xl">
+    <ScrollReveal>
+      <h2 className="mb-12 text-center text-3xl font-bold text-black md:text-4xl">
+        ¿Por qué <span className="text-green-500">elegirnos?</span>
+      </h2>
+    </ScrollReveal>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
-      <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">
-          🤝
+      <ScrollReveal delay={0}>
+        <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">🤝</div>
+          <h3 className="mb-2 text-lg font-bold text-black">Financiación disponible</h3>
+          <p className="text-sm text-gray-500">Comprá tu auto en cuotas accesibles y llevátelo hoy.</p>
         </div>
-        <h3 className="mb-2 text-lg font-bold text-black">Financiación disponible</h3>
-        <p className="text-sm text-gray-500">Comprá tu auto en cuotas accesibles y llevátelo hoy.</p>
-      </div>
+      </ScrollReveal>
 
-      <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">
-          🔄
+      <ScrollReveal delay={100}>
+        <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">🔄</div>
+          <h3 className="mb-2 text-lg font-bold text-black">Acepta permuta</h3>
+          <p className="text-sm text-gray-500">Entregá tu auto como parte de pago y actualizate fácil.</p>
         </div>
-        <h3 className="mb-2 text-lg font-bold text-black">Acepta permuta</h3>
-        <p className="text-sm text-gray-500">Entregá tu auto como parte de pago y actualizate fácil.</p>
-      </div>
+      </ScrollReveal>
 
-      <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">
-          ✅
+      <ScrollReveal delay={200}>
+        <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">✅</div>
+          <h3 className="mb-2 text-lg font-bold text-black">Autos verificados</h3>
+          <p className="text-sm text-gray-500">Cada vehículo es revisado antes de ponerse en venta.</p>
         </div>
-        <h3 className="mb-2 text-lg font-bold text-black">Autos verificados</h3>
-        <p className="text-sm text-gray-500">Cada vehículo es revisado antes de ponerse en venta.</p>
-      </div>
+      </ScrollReveal>
 
-      <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">
-          📍
+      <ScrollReveal delay={300}>
+        <div className="flex flex-col items-center text-center p-6 rounded-3xl bg-gray-50 shadow-sm hover:shadow-md transition duration-300">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-3xl">📍</div>
+          <h3 className="mb-2 text-lg font-bold text-black">Atención personalizada</h3>
+          <p className="text-sm text-gray-500">Te asesoramos en cada paso para que elijas con confianza.</p>
         </div>
-        <h3 className="mb-2 text-lg font-bold text-black">Atención personalizada</h3>
-        <p className="text-sm text-gray-500">Te asesoramos en cada paso para que elijas con confianza.</p>
-      </div>
+      </ScrollReveal>
 
     </div>
   </div>
@@ -113,7 +116,9 @@ export default async function Home() {
 
       {/* SECCIÓN VEHÍCULOS */}
 <section id="vehiculos" className="bg-gray-100 px-5 py-16 md:px-10 md:py-24">
-  <h2 className="mb-10 text-center text-3xl font-bold text-black md:mb-14 md:text-5xl">Vehículos en Stock</h2>
+  <ScrollReveal>
+   <h2 className="mb-10 text-center text-3xl font-bold text-black md:mb-14 md:text-5xl">Vehículos en Stock</h2>
+  </ScrollReveal>
   {autos.length === 0 ? (
     <div className="text-center py-12 text-gray-400">
       <p className="text-5xl mb-4">🚗</p>
