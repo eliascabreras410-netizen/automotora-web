@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
+import StockClient from "./components/StockClient";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -66,54 +67,17 @@ export default async function Home() {
       </main>
 
       {/* SECCIÓN VEHÍCULOS */}
-      <section id="vehiculos" className="bg-gray-100 px-5 py-16 md:px-10 md:py-24">
-        <h2 className="mb-10 text-center text-3xl font-bold text-black md:mb-14 md:text-5xl">Vehículos en Stock</h2>
-        {autos.length === 0 ? (
-          <div className="text-center py-12 text-gray-400">
-            <p className="text-5xl mb-4">🚗</p>
-            <p className="text-lg">Próximamente nuevos vehículos disponibles.</p>
-          </div>
-        ) : (
-          <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {autos.map((auto) => (
-              <article key={auto.id} className="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 md:hover:-translate-y-2 md:hover:scale-105">
-                <div className="relative h-44 w-full overflow-hidden bg-gray-200">
-                  {auto.imagenes && auto.imagenes[0] ? (
-                    <Image
-                      src={auto.imagenes[0]}
-                      alt={auto.marca + " " + auto.modelo}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400 text-4xl">🚗</div>
-                  )}
-                  <span className="absolute right-3 top-3 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white">{auto.ano}</span>
-                  {auto.nuevo_ingreso && (
-                    <span className="absolute left-3 top-3 rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white">Nuevo ingreso</span>
-                  )}
-                </div>
-                <div className="flex flex-col gap-3 p-5 md:p-6">
-                  <h3 className="text-xl font-bold text-black md:text-2xl">{auto.marca} {auto.modelo}</h3>
-                  <div className="flex items-center gap-3 text-sm text-gray-500">
-                    <span>🗓 {auto.ano}</span>
-                    <span>·</span>
-                    <span>🛣 {auto.km?.toLocaleString()} km</span>
-                  </div>
-                  <p className="text-lg font-extrabold text-green-600 md:text-xl">
-                    {auto.precio ? "USD " + auto.precio.toLocaleString() : "Consultar precio"}
-                  </p>
-                  <Link href={"/vehiculos/" + auto.id}
-                    className="mt-2 block w-full rounded-2xl bg-green-600 py-3 text-center text-base font-bold text-white transition hover:scale-105 hover:bg-green-700">
-                    Ver vehículo →
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
-      </section>
+<section id="vehiculos" className="bg-gray-100 px-5 py-16 md:px-10 md:py-24">
+  <h2 className="mb-10 text-center text-3xl font-bold text-black md:mb-14 md:text-5xl">Vehículos en Stock</h2>
+  {autos.length === 0 ? (
+    <div className="text-center py-12 text-gray-400">
+      <p className="text-5xl mb-4">🚗</p>
+      <p className="text-lg">Próximamente nuevos vehículos disponibles.</p>
+    </div>
+  ) : (
+    <StockClient autos={autos} />
+  )}
+</section>
 
       {/* SECCIÓN CONTACTO */}
       <section id='contacto' className='bg-black px-5 py-16 text-white md:px-10 md:py-24'>
