@@ -3,6 +3,8 @@ import Image from "next/image";
 import { createClient } from "@supabase/supabase-js";
 import StockClient from "./components/StockClient";
 import ScrollReveal from "./components/ScrollReveal";
+import { Suspense } from "react";
+import SkeletonStock from "./components/SkeletonStock";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -127,19 +129,21 @@ export default async function Home() {
      
 
       {/* SECCIÓN VEHÍCULOS */}
-<section id="vehiculos" className="bg-gray-100 px-5 py-16 md:px-10 md:py-24">
-  <ScrollReveal>
-   <h2 className="mb-10 text-center text-3xl font-bold text-black md:mb-14 md:text-5xl">Vehículos en Stock</h2>
-  </ScrollReveal>
-  {autos.length === 0 ? (
-    <div className="text-center py-12 text-gray-400">
-      <p className="text-5xl mb-4">🚗</p>
-      <p className="text-lg">Próximamente nuevos vehículos disponibles.</p>
-    </div>
-  ) : (
-    <StockClient autos={autos} />
-  )}
-</section>
+    <section id="vehiculos" className="bg-gray-100 px-5 py-16 md:px-10 md:py-24">
+        <ScrollReveal>
+         <h2 className="mb-10 text-center text-3xl font-bold text-black md:mb-14 md:text-5xl">Vehículos en Stock</h2>
+        </ScrollReveal>
+       {autos.length === 0 ? (
+      <div className="text-center py-12 text-gray-400">
+       <p className="text-5xl mb-4">🚗</p>
+       <p className="text-lg">Próximamente nuevos vehículos disponibles.</p>
+      </div>
+      ) : (
+     <Suspense fallback={<SkeletonStock />}>
+       <StockClient autos={autos} />
+     </Suspense>
+      )}
+    </section>
 
       {/* SECCIÓN CONTACTO */}
       <section id='contacto' className='bg-black px-5 py-16 text-white md:px-10 md:py-24'>
