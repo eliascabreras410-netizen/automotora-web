@@ -102,11 +102,13 @@ export default async function VehiculoPage({ params }) {
                 </div>
               </div>
             )}
-
-            <a href="https://wa.me/59899182849" target="_blank" rel="noreferrer"
-              className="w-full rounded-2xl bg-green-600 py-4 text-center text-lg font-bold text-white transition hover:bg-green-500">
-              Consultar por WhatsApp
-            </a>
+          <a
+            href={`https://wa.me/59899182849?text=${encodeURIComponent(`Hola Alvaro, me interesa el ${auto.marca} ${auto.modelo} ${auto.ano} que vi en tu página. ¿Está disponible?`)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full rounded-2xl bg-green-600 py-4 text-center text-lg font-bold text-white transition hover:bg-green-500">
+            Consultar por WhatsApp
+          </a>
           </div>
 
         </div>

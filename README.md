@@ -1,5 +1,20 @@
 # Proyecto: Alvaro Gervasini Automóviles
 
+## Instrucciones para Claude — Mentalidad de Dev Full Stack Senior
+Cada vez que recibas este README, pensá así antes de tocar cualquier cosa:
+
+1. **Entendé el contexto completo** — leé el estado actual, la estructura de carpetas y las notas antes de escribir una línea de código.
+2. **Impacto primero** — priorizá cambios que mejoren la experiencia del usuario real (conversión, velocidad, claridad) sobre cambios estéticos.
+3. **No rompas lo que funciona** — si algo ya anda, tocalo lo mínimo necesario. Cambios quirúrgicos, no refactors innecesarios.
+4. **Separación de responsabilidades** — Server Components para datos (page.js), Client Components para interactividad ('use client'). No mezclar.
+5. **Sin dependencias innecesarias** — antes de instalar una librería, preguntate si se puede hacer con CSS nativo, Web APIs o lo que ya está instalado.
+6. **Mobile first** — cualquier cambio visual tiene que funcionar bien en iPhone antes que en desktop.
+7. **Git limpio** — un commit por feature, mensajes descriptivos en español.
+8. **Rendimiento** — imágenes con next/image, revalidate en Server Components, lazy loading donde corresponda.
+9. **Preguntar antes de asumir** — si falta información del cliente (precio, texto, dato real), preguntar antes de poner un placeholder.
+
+---
+
 ## Stack tecnológico
 - Next.js + React + Tailwind CSS + Lucide React
 - JavaScript, Node.js, npm
@@ -55,6 +70,9 @@
 ✅ Navegación con teclado en lightbox (flechas + Escape)
 ✅ Miniaturas dentro del lightbox
 ✅ Fix fotos verticales (iPhone) en página de ventas (object-contain + aspect-ratio 3/4)
+✅ Filtros en stock de vehículos (marca, año, km, ordenamiento) — componente StockClient.jsx
+✅ Sección "¿Por qué elegirnos?" con 4 tarjetas (financiación, permuta, verificados, atención)
+✅ Animaciones de entrada al hacer scroll (ScrollReveal.jsx con IntersectionObserver)
 
 ## Estructura de carpetas
 src/app/
@@ -68,7 +86,9 @@ src/app/
 │       page.js
 │
 ├───components/
-│       VehicleGallery.jsx
+│       ScrollReveal.jsx  ← animaciones de entrada al hacer scroll
+│       StockClient.jsx   ← filtros del stock de vehículos
+│       VehicleGallery.jsx ← galería con lightbox y zoom
 │
 ├───data/
 │       vehiculos.js  ← ya no se usa, pendiente eliminar
@@ -132,15 +152,10 @@ C:\Users\Dell\automotora-web
 
 ## Pendiente / próximos pasos
 
-### 🔴 Prioridad alta
-- [ ] Filtros en el stock de vehículos (por marca, año, precio, km)
-- [ ] Sección "¿Por qué elegirnos?" entre el hero y los vehículos (3-4 íconos con texto)
-- [ ] Animaciones de entrada al hacer scroll (fade in, slide up)
-
-### 🟡 Prioridad media
-- [ ] WhatsApp con mensaje predefinido por vehículo ("Hola, me interesa el X, ¿está disponible?")
-- [ ] Contador de vehículos vendidos en el hero o cerca ("+ X vehículos vendidos")
-- [ ] Skeleton loaders mientras cargan los autos desde Supabase
+### 🟡 Prioridad media (siguiente sesión — arrancar por aquí)
+- [ ] WhatsApp con mensaje predefinido por vehículo ("Hola, me interesa el X, ¿está disponible?") — modificar vehiculos/[id]/page.js
+- [ ] Contador de vehículos vendidos en el hero ("+ X vehículos vendidos") — consultar tabla ventas en Supabase
+- [ ] Skeleton loaders mientras cargan los autos desde Supabase — agregar en StockClient.jsx
 
 ### 🟢 Prioridad baja
 - [ ] Google Search Console — registrar sitio con dominio definitivo
@@ -164,6 +179,8 @@ C:\Users\Dell\automotora-web
 - revalidate = 60 en page.js y vehiculos/[id]/page.js (refresca cada 60 segundos)
 - VentasClient.jsx y ResenasClient.jsx son Client Components ('use client')
 - AdminClient.jsx es Client Component con toda la lógica del panel
+- StockClient.jsx es Client Component — recibe autos desde page.js (Server) y maneja filtros
+- ScrollReveal.jsx es Client Component — usa IntersectionObserver sin librerías externas
 - Para limpiar caché de Next.js: Remove-Item -Recurse -Force .next
 - Para limpiar caché DNS de Windows: ipconfig /flushdns
 - Para limpiar caché DNS de Linux: sudo systemd-resolve --flush-caches
@@ -183,3 +200,6 @@ C:\Users\Dell\automotora-web
 - DNS: registro A → 76.76.21.21 (Vercel), CNAME www → vercel-dns
 - Lightbox: click en foto principal abre modal pantalla completa con zoom x2 al hover
 - Fotos verticales iPhone en ventas: object-contain + aspect-ratio 3/4
+- Filtros stock: StockClient.jsx recibe todos los autos y filtra en el cliente (sin llamadas extra a Supabase)
+- Animaciones: clase CSS .reveal + IntersectionObserver en ScrollReveal.jsx, sin librerías
+- Sección "¿Por qué elegirnos?": 4 tarjetas con delay escalonado (0, 100, 200, 300ms)
