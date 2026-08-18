@@ -12,6 +12,7 @@ Cada vez que recibas este README, pensá así antes de tocar cualquier cosa:
 7. **Git limpio** — un commit por feature, mensajes descriptivos en español.
 8. **Rendimiento** — imágenes con next/image, revalidate en Server Components, lazy loading donde corresponda.
 9. **Preguntar antes de asumir** — si falta información del cliente (precio, texto, dato real), preguntar antes de poner un placeholder.
+10. **Explicar siempre** — después de cada cambio, explicar qué hace, cómo verlo y por qué sirve. El desarrollador tiene que entender el proyecto de punta a punta.
 
 ---
 
@@ -73,6 +74,9 @@ Cada vez que recibas este README, pensá así antes de tocar cualquier cosa:
 ✅ Filtros en stock de vehículos (marca, año, km, ordenamiento) — componente StockClient.jsx
 ✅ Sección "¿Por qué elegirnos?" con 4 tarjetas (financiación, permuta, verificados, atención)
 ✅ Animaciones de entrada al hacer scroll (ScrollReveal.jsx con IntersectionObserver)
+✅ WhatsApp con mensaje predefinido por vehículo — vehiculos/[id]/page.js
+✅ Contador de vehículos vendidos en el hero (consulta tabla ventas, visible = true)
+✅ Skeleton loaders en stock — SkeletonStock.jsx con Suspense en page.js
 
 ## Estructura de carpetas
 src/app/
@@ -87,6 +91,7 @@ src/app/
 │
 ├───components/
 │       ScrollReveal.jsx  ← animaciones de entrada al hacer scroll
+│       SkeletonStock.jsx ← skeleton loaders para el stock de vehículos
 │       StockClient.jsx   ← filtros del stock de vehículos
 │       VehicleGallery.jsx ← galería con lightbox y zoom
 │
@@ -152,19 +157,11 @@ C:\Users\Dell\automotora-web
 
 ## Pendiente / próximos pasos
 
-### 🟡 Prioridad media (siguiente sesión — arrancar por aquí)
-- [ ] WhatsApp con mensaje predefinido por vehículo ("Hola, me interesa el X, ¿está disponible?") — modificar vehiculos/[id]/page.js
-- [ ] Contador de vehículos vendidos en el hero ("+ X vehículos vendidos") — consultar tabla ventas en Supabase
-- [ ] Skeleton loaders mientras cargan los autos desde Supabase — agregar en StockClient.jsx
-
-### 🟢 Prioridad baja
-- [ ] Google Search Console — registrar sitio con dominio definitivo
-- [ ] SEO por vehículo — metadatos específicos (title y description) por página de auto
+### 🟢 Prioridad baja (siguiente sesión — arrancar por aquí)
+- [ ] Google Search Console — registrar sitio con dominio definitivo (gervasiniautomoviles.com.uy)
+- [ ] SEO por vehículo — metadatos específicos (title y description) por página de auto en vehiculos/[id]/page.js
 - [ ] Página 404 personalizada con estilo de la automotora
 - [ ] Eliminar src/app/data/vehiculos.js (ya no se usa)
-- [ ] Reemplazar imágenes de collage de Instagram por fotos limpias
-- [ ] Confirmar transmisión del Chevrolet Aveo
-- [ ] Agregar precios reales cuando el tío los confirme
 - [ ] Agregar correo electrónico en sección Contacto
 
 ## Problemas conocidos
@@ -181,6 +178,9 @@ C:\Users\Dell\automotora-web
 - AdminClient.jsx es Client Component con toda la lógica del panel
 - StockClient.jsx es Client Component — recibe autos desde page.js (Server) y maneja filtros
 - ScrollReveal.jsx es Client Component — usa IntersectionObserver sin librerías externas
+- SkeletonStock.jsx es Server Component — muestra 6 tarjetas grises animadas con animate-pulse
+- Suspense envuelve StockClient en page.js — muestra SkeletonStock mientras Supabase responde
+- Skeleton loader se ve claramente en conexiones lentas (probar con Slow 3G en DevTools → Network)
 - Para limpiar caché de Next.js: Remove-Item -Recurse -Force .next
 - Para limpiar caché DNS de Windows: ipconfig /flushdns
 - Para limpiar caché DNS de Linux: sudo systemd-resolve --flush-caches
@@ -203,3 +203,5 @@ C:\Users\Dell\automotora-web
 - Filtros stock: StockClient.jsx recibe todos los autos y filtra en el cliente (sin llamadas extra a Supabase)
 - Animaciones: clase CSS .reveal + IntersectionObserver en ScrollReveal.jsx, sin librerías
 - Sección "¿Por qué elegirnos?": 4 tarjetas con delay escalonado (0, 100, 200, 300ms)
+- WhatsApp predefinido: encodeURIComponent con marca, modelo y año del vehículo en el link
+- Contador ventas: consulta con count exact a tabla ventas donde visible = true

@@ -72,13 +72,14 @@ export default function VehicleGallery({ images, alt }) {
             onClick={() => openLightbox(currentIndex)}
           >
             <Image
-              src={images[currentIndex]}
-              alt={`${alt} ${currentIndex + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 600px"
-              className="object-contain"
-              priority
-            />
+             src={images[currentIndex]}
+             alt={`${alt} ${currentIndex + 1}`}
+             fill
+             sizes="(max-width: 768px) 100vw, 600px"
+             className="object-contain"
+             priority
+             unoptimized
+           />
           </div>
 
           {/* Flecha izquierda */}
@@ -137,6 +138,7 @@ export default function VehicleGallery({ images, alt }) {
                 fill
                 sizes="100px"
                 className="object-cover"
+                unoptimized
               />
             </button>
           ))}
@@ -192,6 +194,7 @@ export default function VehicleGallery({ images, alt }) {
                 transformOrigin: `${zoom.x}% ${zoom.y}%`,
                 transform: zoom.active ? "scale(2)" : "scale(1)",
               }}
+              unoptimized
             />
           </div>
 
@@ -222,6 +225,7 @@ export default function VehicleGallery({ images, alt }) {
                   fill
                   sizes="70px"
                   className="object-cover"
+                  unoptimized
                 />
               </button>
             ))}

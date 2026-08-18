@@ -142,7 +142,7 @@ export default function StockClient({ autos }) {
                 <div className="flex items-center gap-3 text-sm text-gray-500">
                   <span>🗓 {auto.ano}</span>
                   <span>·</span>
-                  <span>🛣 {auto.km?.toLocaleString()} km</span>
+                  <span>🛣 {auto.km?.toLocaleString('es-UY')} km</span>
                 </div>
                 <p className="text-lg font-extrabold text-green-600 md:text-xl">
                   {auto.precio ? "USD " + auto.precio.toLocaleString() : "Consultar precio"}
