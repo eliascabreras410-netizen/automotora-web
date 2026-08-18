@@ -386,7 +386,7 @@ export default function AdminClient() {
                   <div key={a.id} className="bg-white rounded-2xl border border-gray-200 p-4 flex items-center justify-between">
                     <div>
                       <p className="font-semibold text-gray-800">{a.marca} {a.modelo}</p>
-                      <p className="text-sm text-gray-400">{a.ano} · {a.km?.toLocaleString()} km</p>
+                      <p className="text-sm text-gray-400">{a.ano} · {a.km?.toLocaleString('es-UY')} km</p>
                     </div>
                     <div className="flex gap-2">
                       <button onClick={() => editarAuto(a)} className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-xl transition-colors">Editar</button>

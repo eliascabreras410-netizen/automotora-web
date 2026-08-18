@@ -46,7 +46,7 @@ export default function VehiculoPage({ params }) {
               <div className="rounded-2xl bg-gray-100 p-5">
                 <Gauge className="text-green-600" size={28} />
                 <p className="mt-3 text-xs font-semibold uppercase text-gray-400">Kilometros</p>
-                <p className="mt-1 text-xl font-bold text-black">{auto.km.toLocaleString()} km</p>
+                <p className="mt-1 text-xl font-bold text-black">{auto.km?.toLocaleString('es-UY')} km</p>
               </div>
               <div className="rounded-2xl bg-gray-100 p-5">
                 <Fuel className="text-green-600" size={28} />
@@ -63,7 +63,7 @@ export default function VehiculoPage({ params }) {
             <div className="rounded-2xl bg-gray-100 p-5">
               <p className="text-xs font-semibold uppercase text-gray-400">Precio</p>
               <p className="mt-1 text-3xl font-extrabold text-green-600">
-                {auto.precio ? "USD " + auto.precio.toLocaleString() : "Consultar precio"}
+                {auto.precio ? "USD " + auto.precio.toLocaleString('es-UY') : "Consultar precio"}
               </p>
             </div>
 

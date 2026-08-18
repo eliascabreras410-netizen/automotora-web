@@ -145,7 +145,7 @@ export default function StockClient({ autos }) {
                   <span>🛣 {auto.km?.toLocaleString('es-UY')} km</span>
                 </div>
                 <p className="text-lg font-extrabold text-green-600 md:text-xl">
-                  {auto.precio ? "USD " + auto.precio.toLocaleString() : "Consultar precio"}
+                  {auto.precio ? "USD " + auto.precio.toLocaleString('es-UY') : "Consultar precio"}
                 </p>
                 <Link href={"/vehiculos/" + auto.id}
                   className="mt-2 block w-full rounded-2xl bg-green-600 py-3 text-center text-base font-bold text-white transition hover:scale-105 hover:bg-green-700">
