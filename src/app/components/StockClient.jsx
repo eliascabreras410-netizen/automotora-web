@@ -119,7 +119,7 @@ export default function StockClient({ autos }) {
       ) : (
         <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {autosFiltrados.map((auto) => (
-            <article key={auto.id} className="group overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 md:hover:-translate-y-2 md:hover:scale-105">
+            <article key={auto.id} className="group relative overflow-hidden rounded-3xl bg-white shadow-xl transition duration-300 md:hover:-translate-y-2 md:hover:scale-105">
               <div className="relative h-44 w-full overflow-hidden bg-gray-200">
                 {auto.imagenes && auto.imagenes[0] ? (
                   <Image
@@ -148,7 +148,7 @@ export default function StockClient({ autos }) {
                   {auto.precio ? "USD " + auto.precio.toLocaleString('es-UY') : "Consultar precio"}
                 </p>
                 <Link href={"/vehiculos/" + auto.id}
-                  className="mt-2 block w-full rounded-2xl bg-green-600 py-3 text-center text-base font-bold text-white transition hover:scale-105 hover:bg-green-700">
+                  className="mt-2 block w-full rounded-2xl bg-green-600 py-3 text-center text-base font-bold text-white transition hover:bg-green-700 after:absolute after:inset-0">
                   Ver vehículo →
                 </Link>
               </div>
